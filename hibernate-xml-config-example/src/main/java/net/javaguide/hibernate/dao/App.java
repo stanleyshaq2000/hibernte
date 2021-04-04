@@ -12,6 +12,27 @@ import net.javaguide.hibernate.util.HibernateUtil;
 public class App {
     public static void main(String[] args) {
 
+    	
+    	StudentDao studentDao = new StudentDao();
+    	
+    	Student student1 = new Student("Stanley", "Chen", "szuychen@gmail.com");
+    	Student student2 = new Student("Michael", "Lin", "mlin@gmail.com");
+    	studentDao.saveStudent(student1);
+    	studentDao.saveStudent(student2);
+    	    	    	
+    	List<Student> students = studentDao.getAllStudents();    	
+    	students.forEach(s -> System.out.println(s.getFirstName()));
+    	
+    	Student student3 = studentDao.getStudentById(student1.getId());
+    	studentDao.deleteStudent(student3.getId());
+    	
+    	
+    	students = studentDao.getAllStudents();    	
+    	students.forEach(s -> System.out.println(s.getFirstName()));
+    	
+    	
+    	
+    	/*
         Student student = new Student("Ramesh", "Fadatare", "rameshfadatare@javaguides.com");
         Student student1 = new Student("John", "Cena", "john@javaguides.com");
         Transaction transaction = null;
@@ -41,5 +62,7 @@ public class App {
         }
     }
     
-
+    */
+    
+    }
 }
